@@ -2,8 +2,18 @@
   <div class="inventory-grid block">
     <table class="inventory-grid__table">
       <tr class="inventory-grid__table__tr" v-for="(row, i) in rows">
-        <th class="inventory-grid__table__th" v-for="(column, j) in columns">
-          <GridElement :element="elements[i][j]" @select="showItemInfo" />
+        <th
+          class="inventory-grid__table__th"
+          v-for="(column, j) in columns"
+          @dragover.prevent
+          @dragenter.prevent
+          @drop="onDrop($event, i, j)"
+        >
+          <GridElement
+            @onDragStart="onDragStart"
+            :element="elements[i][j]"
+            @select="showItemInfo"
+          />
         </th>
       </tr>
     </table>
@@ -24,7 +34,8 @@ const columns = 5;
 
 const elementsStore = useElementsStore();
 const itemsStore = useItemsStore();
-const { initializeEmptyGrid, setItemPosition } = useElementsStore();
+const { initializeEmptyGrid, setItemPosition, clearElement } =
+  useElementsStore();
 const elements = elementsStore.elements;
 const items = itemsStore.items;
 
@@ -40,6 +51,28 @@ const showItemInfo = (element) => {
     selectedItem.value = element;
     document.querySelector(".item-info").classList.add("show");
   }
+};
+
+const onDragStart = (event, element) => {
+  event.dataTransfer.dropEffect = "move";
+  event.dataTransfer.effectAllowed = "move";
+  event.dataTransfer.setData("element", JSON.stringify(element));
+};
+
+const onDrop = (event, i, j) => {
+  const element = JSON.parse(event.dataTransfer.getData("element"));
+  if (elements[i][j].item) {
+    setItemPosition(
+      element.coordinates.i,
+      element.coordinates.j,
+      elements[i][j].item,
+      elements[i][j].amount
+    );
+    setItemPosition(i, j, element.item, element.amount);
+    return;
+  }
+  clearElement(element.coordinates.i, element.coordinates.j);
+  setItemPosition(i, j, element.item, element.amount);
 };
 </script>
 

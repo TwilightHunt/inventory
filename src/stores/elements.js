@@ -13,7 +13,7 @@ export const useElementsStore = defineStore({
       for (let i = 0; i < rows; i++) {
         this.elements[i] = [];
         for (let j = 0; j < columns; j++) {
-          this.elements[i][j] = { ...emptyElement, id };
+          this.elements[i][j] = { ...emptyElement, id, coordinates: { i, j } };
           id++;
         }
       }
@@ -22,6 +22,10 @@ export const useElementsStore = defineStore({
     setItemPosition(i, j, item, amount) {
       this.elements[i][j].item = item;
       this.elements[i][j].amount = amount;
+    },
+
+    clearElement(i, j) {
+      this.elements[i][j] = { item: null, amount: 0 };
     },
   },
 });

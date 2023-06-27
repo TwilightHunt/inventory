@@ -1,5 +1,10 @@
 <template>
-  <div class="grid-element" @click="$emit('select', props.element)">
+  <div
+    class="grid-element"
+    @click="$emit('select', props.element)"
+    draggable="true"
+    @dragstart="$emit('onDragStart', $event, props.element)"
+  >
     <img
       v-if="props.element.item"
       :src="props.element.item.image"
