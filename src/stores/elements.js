@@ -25,7 +25,12 @@ export const useElementsStore = defineStore({
     },
 
     clearElement(i, j) {
-      this.elements[i][j] = { item: null, amount: 0 };
+      this.elements[i][j] = {
+        item: null,
+        amount: 0,
+        id: this.elements[i][j].id,
+        coordinates: { i, j },
+      };
     },
   },
 });

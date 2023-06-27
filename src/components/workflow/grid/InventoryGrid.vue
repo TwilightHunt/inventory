@@ -13,6 +13,7 @@
             @onDragStart="onDragStart"
             :element="elements[i][j]"
             @select="showItemInfo"
+            :key="elements[i][j].id"
           />
         </th>
       </tr>
@@ -61,6 +62,7 @@ const onDragStart = (event, element) => {
 
 const onDrop = (event, i, j) => {
   const element = JSON.parse(event.dataTransfer.getData("element"));
+  console.log(element);
   if (elements[i][j].item) {
     setItemPosition(
       element.coordinates.i,
