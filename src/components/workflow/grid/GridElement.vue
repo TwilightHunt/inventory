@@ -1,5 +1,5 @@
 <template>
-  <div class="grid-element">
+  <div class="grid-element" @click="$emit('select', props.element)">
     <img
       v-if="props.element.item"
       :src="props.element.item.image"
@@ -24,6 +24,7 @@ const props = defineProps({
   height: 100px;
   border-radius: 0;
   position: relative;
+  cursor: pointer;
   &__amount {
     position: absolute;
     bottom: -1px;
