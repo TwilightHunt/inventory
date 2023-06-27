@@ -8,12 +8,7 @@
         <div class="stub-md"></div>
       </div>
       <div class="panel-left__description__text">
-        <div class="stub"></div>
-        <div class="stub"></div>
-        <div class="stub"></div>
-        <div class="stub"></div>
-        <div class="stub"></div>
-        <div class="stub"></div>
+        <div v-for="stub in 6" class="stub"></div>
       </div>
     </div>
   </div>

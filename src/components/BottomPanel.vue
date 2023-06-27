@@ -1,9 +1,30 @@
 <template>
-  <div class="bottom-panel"></div>
+  <div class="bottom-panel block">
+    <div class="bottom-panel__body">
+      <div class="stub-lg"></div>
+    </div>
+    <Cross />
+  </div>
 </template>
 
-<script>
-export default {};
+<script setup>
+import Cross from "./icons/Cross.vue";
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.bottom-panel {
+  padding: 18px;
+  padding-right: 68px;
+  position: relative;
+  &__body {
+    & .stub-lg {
+      width: 100%;
+    }
+  }
+  .cross {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+  }
+}
+</style>

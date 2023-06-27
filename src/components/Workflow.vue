@@ -16,4 +16,12 @@ import InventoryGrid from "./InventoryGrid.vue";
 import BottomPanel from "./BottomPanel.vue";
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.inventory {
+  &__body {
+    display: flex;
+    column-gap: 24px;
+    margin-bottom: 24px;
+  }
+}
+</style>
