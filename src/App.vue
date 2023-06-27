@@ -1,5 +1,5 @@
 <script setup>
-import Workflow from "./components/Workflow.vue";
+import Workflow from "./components/workflow/Workflow.vue";
 </script>
 
 <template>

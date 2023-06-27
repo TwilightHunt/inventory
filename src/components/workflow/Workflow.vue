@@ -12,7 +12,7 @@
 
 <script setup>
 import LeftPanel from "./LeftPanel.vue";
-import InventoryGrid from "./InventoryGrid.vue";
+import InventoryGrid from "./grid/InventoryGrid.vue";
 import BottomPanel from "./BottomPanel.vue";
 </script>
 
