@@ -1,0 +1,15 @@
+.stub {
+  background: radial-gradient(#444444, #333333);
+  height: 10px;
+  border-radius: 10px;
+}
+.stub-md {
+  @extend .stub;
+  height: 26px;
+  border-radius: 26px;
+}
+.stub-lg {
+  @extend .stub;
+  height: 36px;
+  border-radius: 36px;
+}
