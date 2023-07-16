@@ -10,6 +10,7 @@
           @drop="onDrop($event, i, j)"
         >
           <GridElement
+            v-if="elements.length"
             @onDragStart="onDragStart"
             :element="elements[i][j]"
             @select="showItemInfo"
