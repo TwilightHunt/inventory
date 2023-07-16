@@ -27,7 +27,7 @@ import GridElement from "./GridElement.vue";
 import ItemInfo from "./ItemInfo.vue";
 import { useElementsStore } from "@/stores/elements";
 import { useItemsStore } from "@/stores/items";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 const selectedItem = ref();
 const rows = 5;
@@ -40,12 +40,14 @@ const { initializeEmptyGrid, setItemPosition, clearElement } =
 const elements = elementsStore.elements;
 const items = itemsStore.items;
 
-if (elements.length < rows * columns) {
-  initializeEmptyGrid(rows, columns);
-  setItemPosition(0, 0, items[0], 4);
-  setItemPosition(0, 1, items[1], 2);
-  setItemPosition(0, 2, items[2], 5);
-}
+onMounted(() => {
+  if (elements.length < rows) {
+    initializeEmptyGrid(rows, columns);
+    setItemPosition(0, 0, items[0], 4);
+    setItemPosition(0, 1, items[1], 2);
+    setItemPosition(0, 2, items[2], 5);
+  }
+});
 
 const showItemInfo = (element) => {
   if (element.item) {
