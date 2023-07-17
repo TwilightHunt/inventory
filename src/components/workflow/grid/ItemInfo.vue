@@ -1,5 +1,5 @@
 <template>
-  <div class="item-info" ref="panel">
+  <div v-on-click-outside="close" class="item-info" ref="panel">
     <Cross @click="close" />
     <div class="item-info__image">
       <img :src="props?.element?.item?.image" alt="" />
@@ -40,7 +40,7 @@ const close = () => {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(#262626, 0.5);
+  background-color: rgba(#262626, 0.9);
   backdrop-filter: blur(5px) opacity(0.8);
   width: 250px;
   border-left: 1px solid #4d4d4d;

@@ -65,7 +65,6 @@ const onDragStart = (event, element) => {
 
 const onDrop = (event, i, j) => {
   const element = JSON.parse(event.dataTransfer.getData("element"));
-  console.log(element);
   if (elements[i][j].item) {
     setItemPosition(
       element.coordinates.i,
@@ -84,7 +83,7 @@ const onDrop = (event, i, j) => {
 <style lang="scss" scoped>
 .inventory-grid {
   position: relative;
-  overflow-x: hidden;
+  overflow-x: scroll;
   &__table {
     border-collapse: collapse;
     border-style: hidden;
@@ -98,6 +97,9 @@ const onDrop = (event, i, j) => {
     top: 0;
     bottom: 0;
     right: 0;
+  }
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 </style>
