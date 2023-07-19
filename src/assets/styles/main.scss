@@ -4,7 +4,7 @@
   margin: 5rem auto;
 }
 body {
-  background-color: #1d1d1d;
+  background-color: $primary-bg;
 }
 img {
   user-select: none;
@@ -21,4 +21,7 @@ img {
     display: flex;
     place-items: center;
   }
+}
+* {
+  font-size: 10px;
 }

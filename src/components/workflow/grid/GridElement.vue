@@ -1,15 +1,12 @@
 <template>
-  <div
-    class="grid-element"
-    @click="$emit('select', props.element)"
-    draggable="true"
-    @dragstart="$emit('onDragStart', $event, props.element)"
-  >
+  <div class="grid-element" @click="$emit('select', props.element)">
     <img
       v-if="props.element.item"
       :src="props.element.item.image"
       alt=""
       class="grid-element__image"
+      draggable="true"
+      @dragstart="$emit('onDragStart', $event, props.element)"
     />
     <div class="grid-element__amount" v-if="props.element.item">
       {{ props.element.amount }}
@@ -39,7 +36,7 @@ const props = defineProps({
     border-top: 1px solid #4d4d4d;
     border-left: 1px solid #4d4d4d;
     border-top-left-radius: 5px;
-    font-size: 0.625rem;
+    font-size: 1rem;
     color: rgba(#fff, 0.4);
     font-weight: 500;
     line-height: 150%;

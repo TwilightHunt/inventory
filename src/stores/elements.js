@@ -36,6 +36,15 @@ export const useElementsStore = defineStore({
         coordinates: { i, j },
       };
     },
+
+    editElement({ i, j }, newData) {
+      console.log(newData);
+      this.elements[i][j] = {
+        ...this.elements[i][j],
+        ...newData,
+      };
+      console.log(this.elements[i][j]);
+    },
   },
   persist: true,
 });
