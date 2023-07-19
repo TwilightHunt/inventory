@@ -33,7 +33,15 @@
       <button @click="toggleEditAmountModal" class="button">
         Редактировать количество
       </button>
-      <button class="button button-danger">Удалить предмет</button>
+      <button
+        @click="
+          clearElement(element.coordinates.i, element.coordinates.j);
+          close();
+        "
+        class="button button-danger"
+      >
+        Удалить предмет
+      </button>
     </div>
   </div>
 </template>
@@ -45,7 +53,7 @@ import CommonInput from "@/components/ui/input.vue";
 import { Element } from "@/utils/types/element.ts";
 import { useElementsStore } from "@/stores/elements";
 
-const { editElement } = useElementsStore();
+const { editElement, clearElement } = useElementsStore();
 
 interface ItemInfoProps {
   element: Element;
@@ -80,7 +88,7 @@ watch(props, () => {
 });
 
 const options = {
-  postProcess: (val) => val.replace(/^0+/, ""),
+  postProcess: (val: string) => val.replace(/^0+/, ""),
 };
 </script>
 
