@@ -1,7 +1,7 @@
 <template>
   <div class="panel-left block">
     <div class="panel-left__image">
-      <img src="@/assets/imgs/img.png" alt="" />
+      <img src="../../assets/imgs/Img.png" alt="" />
     </div>
     <div class="panel-left__description">
       <div class="panel-left__description__title">

@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import Cross from "@/components/icons/cross.vue";
+import Cross from "../icons/Cross.vue";
 </script>
 
 <style lang="scss" scoped>

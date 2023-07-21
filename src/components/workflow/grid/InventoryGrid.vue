@@ -26,8 +26,8 @@
 <script setup>
 import GridElement from "./GridElement.vue";
 import ItemInfo from "./ItemInfo.vue";
-import { useElementsStore } from "@/stores/elements";
-import { useItemsStore } from "@/stores/items";
+import { useElementsStore } from "../../../stores/elements";
+import { useItemsStore } from "../../../stores/items";
 import { ref, onMounted } from "vue";
 
 const selectedItem = ref();

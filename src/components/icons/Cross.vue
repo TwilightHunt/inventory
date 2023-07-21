@@ -1,6 +1,6 @@
 <template>
   <span class="cross">
-    <img src="@/assets/imgs/icons/cross.svg" alt="" />
+    <img src="../../assets/imgs/icons/cross.svg" alt="" />
   </span>
 </template>
 
